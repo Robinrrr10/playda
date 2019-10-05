@@ -1,23 +1,57 @@
 <html>
 
 <head>
-	<title>Sign up</title>
+<style>
+input[type=text], input[type=email], input[type=password] {
+width: 100%;
+border: 2px solid #2196F3;
+border-radius: 15px;
+padding: 18px 25px;
+margin: 8px 0;
+display: inline-block;
+box-sizing: border-box;
+font-size: 20px;
+}
+input[type=submit] {
+width: 100%;
+background-color: #2196F3;
+border-radius: 15px;
+font-size: 23px;
+padding: 10px 25px;
+cursor: pointer;
+border: none;
+color: white;
+margin: 8px 0;
+}
+input[type=submit]:hover {
+background-color: black;
+}
+div {
+width: 50%;
+background-color: grey;
+padding: 20px;
+border-radius: 5px;
+}
+</style>
+<title>Sign up</title>
 </head>
 
 <body>
+<div>
 	<form action="" method="POST">
 	{% csrf_token %}
-	User name: <input type="text" name="user_name" /><br/>
-	First name: <input type="text" name="first_name" /><br/>
-	Last name: <input type="text" name="last_name" /><br/>
-	Email: <input type="email" name="email_id" /><br/>
-	Password: <input type="password" name="password" /><br/>
-	Confirm password: <input type="password" name="confirm_password" /><br/>
-	<input type="submit" name="Sign Up" /><br/>
+	<input type="text" name="user_name" placeholder="User name"><br/>
+	<input type="text" name="first_name" placeholder="First name"><br/>
+	<input type="text" name="last_name" placeholder="Last name"><br/>
+	<input type="email" name="email_id" placeholder="Email Id"><br/>
+	<input type="password" name="password" placeholder="Type password"><br/>
+	<input type="password" name="confirm_password" placeholder="Re-Type password"><br/>
+	<input type="submit" value="Sign Up">
 	</form>
 	{% for message in messages %}
 		<h3>{{ message }}</h3>
 	{% endfor %}
+</div>
 </body>
 
 </html>

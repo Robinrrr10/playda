@@ -4,7 +4,8 @@ from django.db import models
 
 class Post(models.Model):
     postType = models.CharField(max_length=50)
-    postedBy = models.IntegerField()
+    postedBy = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField(upload_to='postedImages')
+    video = models.FileField(upload_to='postedVideos', null=True)
     isActive = models.BooleanField(default=True)

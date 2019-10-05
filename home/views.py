@@ -10,13 +10,14 @@ def home(request):
 def post(request):
     print("new post....")
     postType = 'I'
-    postedBy = 1001
+    postedBy = request.user.username
     description = request.POST['description']
     image = request.FILES['image']
+    video = request.FILES['video']
     print("image type is:", type(image))
     print("image is:", image)
     isActive = True
-    post = Post(postType = postType, postedBy = postedBy, description = description, image = image, isActive = isActive)
+    post = Post(postType = postType, postedBy = postedBy, description = description, image = image, video = video, isActive = isActive)
     post.save()
     print("post has been saved")
     return redirect('/')
