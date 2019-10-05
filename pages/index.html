@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PlayDa</title>
+</head>
+<body>
+<h3>Working home</h3>
+{% if user.is_authenticated %}
+	<h4>{{ user.first_name }}</h4>
+	<a href="accounts/logout">Logout</a><br/>
+{% else %}
+	<a href="accounts/login">Sign In</a><br/>
+	<a href="accounts/signup">Sign Up</a><br/>
+{% endif%}
+<div>
+<p>username</p>
+<p>Time Of Post Or Before what time it was posted</p>
+<p>Caption or description</p>
+<p>Content - image or video or audio</p>
+</div>
+<div>
+	<form action="post" method="POST" enctype = "multipart/form-data" >
+	{% csrf_token %}
+	Enter description:<input type="text" name="description"/><br/>
+	<input type="file" name="image"/><br/>
+	<input type="submit" value="POST"/>
+	</form>
+</div>
+
+	{% for post in posts %}
+	<div>
+		<h3>{{ post.postedBy }}</h3>
+		<img src="{{post.image.url}}" />
+		<p>{{ post.description }}</p>
+	</div>
+	{% endfor %}
+</body>
+</html>
