@@ -47,3 +47,7 @@ def signout(request):
     print("signout......")
     auth.logout(request)
     return redirect('/')
+
+def profile(request):
+    print("profile.....")
+    return render(request, 'profile.html')

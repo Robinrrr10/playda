@@ -4,7 +4,16 @@ from .forms import PostForm
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.all()
+    currentuser = request.user.username
+    frds = ['kumar', 'raja']  # have to get only friend list
+    frds.append(currentuser)
+    #posts = Post.objects.all()
+    posts = []
+    for i in range(len(frds)):
+        lstpost = Post.objects.filter(postedBy=frds[i])
+        posts.extend(lstpost)
+        #posts = Post.objects.filter(postedBy=frds[i])
+    posts.reverse()   # instead of reverse use date and time concept to view recent post in top
     return render(request, 'index.html', {'posts': posts})
 
 def post(request):

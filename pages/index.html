@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,11 +82,40 @@ body {
 .txtarea {
 	padding: 10px 30px;
 }
+
+.search {
+width: 40%;
+box-sizing: border-box;
+border: 2px solid grey;
+border-radius: 7px;
+font-size: 30px;
+background-color: white;
+background-image: url({% static 'images/search2.png' %});
+background-position: 0px 0px;
+background-repeat: no-repeat;
+padding: 30px 80px 30px 160px;
+
+-webkit-transition: width 1.2s ease-in-out;
+transition: width 1.2s ease-in-out;
+
+-ms-transform: scale(0.4,0.4);
+-webkit-transform: scale(0.4,0.4);
+transform: scale(0.4,0.4);
+}
+.search:focus {
+width: 70%;
+}
+
 </style>
 <meta charset="UTF-8">
 <title>PlayDa</title>
 </head>
 <body>
+
+<form action="" >
+<input class="search" type="text" name="search" placeholder="Search...">
+</form>
+
 
 <ul class="topmenu">
  {% if user.is_authenticated %}
@@ -100,7 +130,7 @@ body {
 <div class="clearfix">
   <div class="column sidemenu">
     <ul>
-      <li><a href="#flight">side menu 1</a></li>
+      <li><a href="accounts/profile">Profile</a></li>
       <li><a href="#city">side menu 2</a></li>
       <li><a href="#island" class="active">side menu 3</a></li>
       <li><a href="#food">side menu 4</a></li>
@@ -109,6 +139,10 @@ body {
       <li><a href="#oceans">side menu 7</a></li>
     </ul>
   </div>
+  
+  <!--<div>
+  <iframe src="http://127.0.0.1:8000/" width="300" height="300" ></iframe>
+  </div>-->
 
   <div class="column content">
     <div class="header">
