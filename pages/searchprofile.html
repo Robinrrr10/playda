@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.one {
+float: left;
+height: 200px;
+width: 200px;
+border: 1px solid grey;
+padding: 5px;
+text-align: center;
+margin: 3px;
+}
+button {
+width: 50%
+}
+
+.fbut {
+background-color: orange;
+border: none;
+border-radius: 10px;
+padding: 7px 25px;
+color: white;
+text-align: center;
+text-decoration: none;
+font-size: 20px;
+cursor: pointer;
+transition: all 1s;
+}
+.fbut:hover{
+font-size: 25px;
+color: black;
+transition: 0.5s;
+}
+</style>
+</head>
+<body>
+<div class="one" id="two">Box1<br>
+<img src="telecom.jpg" style="width:100%;height:70%">
+<form action="" method="post">
+{% csrf_token %}
+    <input class="fbut" type="submit" name="fol" value="Follow" />
+</form>
+</div>
+<div class="one" id="three">Box2<br>
+<img src="mobilecom.jpg" style="width:100%;height:70%">
+<form action="" method="post">
+{% csrf_token %}
+    <input class="fbut" type="submit" name="fol" value="Follow" />
+</form>
+</div>
+<div class="one">Box2<br>
+<img src="telecom.jpg" style="width:100%;height:70%">
+<form action="" method="post">
+{% csrf_token %}
+    <input class="fbut" type="submit" name="fol" value="Follow" />
+</form>
+</div>
+<div class="one" id="two">Box1<br>
+<img src="telecom.jpg" style="width:100%;height:70%">
+<form action="" method="post">
+{% csrf_token %}
+    <input class="fbut" type="submit" name="fol" value="Follow" />
+</form>
+</div>
+
+<form action="Unfollow" method="post">
+
+</form>
+<script>
+function removeElement() {
+document.getElementById("two").style.display = "none";
+}
+
+function hideElement() {
+document.getElementById("three").style.visibility = "hidden";
+}
+
+function reSet() {
+document.getElementById("two").style.display = "block";
+document.getElementById("three").style.visibility = "visible";
+}
+</script>
+</body>
+</html>
